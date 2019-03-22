@@ -43,5 +43,5 @@ Page({
   that.setData({
     classId: that.data.classification[e.detail.value].id
   })
-  }
+  },
 })
