@@ -1,0 +1,62 @@
+<view class='layout_horizontal'>
+  <view style='flex:1'>
+  <navigator url='/pages/classInfo/classInfo?classId={{classId.phone}}'>
+     <image class='img' src='/image/phone.png'></image> 
+  </navigator>
+  </view>
+  <view style='flex:1;'>
+  <navigator url='/pages/classInfo/classInfo?classId={{classId.book}}'>
+     <image class='img' src='/image/book.png'></image>
+  </navigator>
+  </view>
+  <view style='flex:1;'>
+  <navigator url='/pages/classInfo/classInfo?classId={{classId.computer}}'>
+     <image class='img' src='/image/zahuo.png'></image>
+  </navigator> 
+  </view>
+  <view style='flex:1'>
+     <image class='img' src='/image/more.png'></image> 
+  </view>   
+</view>
+
+<view class='layout_horizontal'>
+  <view style='flex:1' class='classifition'>
+    <text>手机数码</text>
+  </view>
+  <view style='flex:1' class='classifition'>
+    <text>书籍</text>
+  </view>
+  <view style='flex:1' class='classifition'>
+    <text>日用百货</text>
+  </view>
+ <view style='flex:1' class='classifition'>
+    <text>更多</text>
+  </view>
+</view>
+
+
+<view wx:for="{{goods}}" >
+<navigator url='/pages/goodsInfo/goodsInfo?id={{item.goodsId}}' hover-class="navigator-hover">
+  <view class='goods-card'>
+    <view class='box'>
+      <view class='box1'>
+       <image class='user-img' src='{{item.userImg}}'></image> 
+      </view>
+      <view class='box2'>
+       <text class='goods-title'>{{item.goodsTitle}}</text> 
+       <text class='box3' class='goods-price'>￥{{item.price}}</text> 
+      </view>
+       <view class='box3'>
+       <text class='goods-time'>{{item.date}}</text> 
+      </view>             
+    </view>
+    <view class='goods-img-layout_horizontal'>
+      <view class='img-float'  wx:for="{{item.goodsImgList}}">
+        <image style='flex:1' src='{{item}}'></image>
+      </view>                     
+    </view>
+    <!-- <text class='goods-miaoshu'>{{item.describle}}</text> -->
+  </view>
+</navigator>
+</view>
+

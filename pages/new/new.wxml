@@ -1,0 +1,34 @@
+<form bindsubmit="formSubmit">
+  <view class='top-card'>
+  <view class='title'>
+    <input name="name" placeholder="商品简介"></input>
+  </view>
+  <view class='link'></view>
+  <view class='describle'>
+  <!-- <input name="describle" placeholder='商品描述'></input> -->
+  <textarea name="describle"  placeholder="商品描述" />
+  </view>
+
+  <view class='img-span'>
+    <image wx:for="{{img}}" src='{{item}}' bindtap='updateimg' class='img'></image>
+    <image src='/img/add_image.png' bindtap='updataimg' class='img'></image>
+  </view> 
+</view>
+
+<view class='buttom-card'>
+   <view class='span'>
+   <input name="price" placeholder='价格' type='digit'></input>
+   </view> 
+  <view class='link'></view>
+
+   <view class='span'> 
+   <picker bindchange="bindPickerChange" range-key='name' range="{{classification}}" value='{{index}}'>
+      分类:<text>{{'二手书'}}</text>
+  </picker>
+   </view>   
+</view>
+
+<view class='buttom'>
+  <button form-type='submit'>发布</button>
+</view>
+</form>
