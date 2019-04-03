@@ -47,7 +47,7 @@ Page({
   onShow: function () {
     var that = this
     wx.request({
-      url: app.data.apiUrl + '/goods/class',
+      url: '/goods/class',
       success: function (res) {
         that.setData({
           classification: res.data.data
@@ -73,8 +73,12 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
         // app.globalData.imgs = tempFilePaths
-        var paths = []
-        paths.push(tempFilePaths)
+        var paths = that.data.images
+        for(var i=0;i<tempFilePaths.length;i++)
+        {
+          paths.push(tempFilePaths[i])
+        }
+        console.log(paths)
         that.setData({
           images: paths
         });

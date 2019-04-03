@@ -1,39 +1,88 @@
 <form bindsubmit="formSubmit">
   <view class='top-card'>
-  <view class='title'>
-    <input name="name" placeholder="商品简介（20字以内）"maxlength="20"></input>
-  </view>
-  <view class='link'></view>
-  <view class='describle'>
-  <!-- <input name="describle" placeholder='商品描述'></input> -->
-  <textarea name="describle"  placeholder="商品描述（200字以内）"maxlength="200" />
-  </view>
+    <view class='title'>
+      <input name="name" placeholder="商品简介（20字以内）"maxlength="20"></input>
+    </view>
+    <view class='link'></view>
+    <view class='describle'>
+      <textarea name="describle"  placeholder="商品描述（200字以内）"maxlength="200" />
+    </view>
 
-  <scroll-view scroll-x="true" style = "width:100%;position: relative" scroll-into-view="{{toView}}" scroll-with-animation = "true">
-    <block wx:for="{{images}}" wx:key="*this">
-      <image src='{{item}}' data-idx="{{index}}"
-           bindtap="handleImagePreview"mode='aspectFill' class='img'></image>
-    </block>
-</scroll-view>
-  <view class='img-span'>
-    <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
-  </view> 
-</view>
+    <!-- <scroll-view scroll-x="true"scroll-y="false" style = "width:100%;position: relative"              scroll-with-animation = "true">
+      <block wx:for="{{images}}" wx:key="*this">
+         <image src="{{item}}" data-idx="{{index}}"bindtap="historyHandleImagePreview"mode='aspectFill'class='img'></image>
+      </block>
+      <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
+    </scroll-view> -->
+    <!-- <text>添加图片</text> -->
+  <view class='buttom-card'>
+    <view class='span'>
+      <input name="price" placeholder='价格' type='digit'></input>
+    </view> 
+    <view class='link'></view>
 
-<view class='buttom-card'>
-   <view class='span'>
-   <input name="price" placeholder='价格' type='digit'></input>
-   </view> 
-  <view class='link'></view>
-
-   <view class='span'> 
-   <picker bindchange="bindPickerChange" range="{{type}}" value='{{index}}'>
+    <view class='span'> 
+      <picker bindchange="bindPickerChange" range="{{type}}" value='{{index}} '>
       选择分类:<text>{{type[typeId]}}</text>
-  </picker>
-   </view>   
-</view>
+      </picker>
+    </view>   
+  </view>
 
-<view class='buttom'>
-  <button form-type='submit'>发布</button>
-</view>
+  <block wx:if="{{images.length<1}}">
+        <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
+    </block>
+
+    <block wx:if="{{images.length>0}}">
+      <view class="question-images-area">
+      <block wx:for="{{images}}" wx:key="*this">
+        <block wx:if="{{images.length>index&&index<3}}">
+          <view class="q-image-wrap"> 
+            <image class="q-image"src="{{item}}" data-idx="{{index}}"
+            bindtap="handleImagePreview"mode='aspectFill'></image>
+          </view>
+        </block>
+      </block>
+
+      <block wx:if="{{images.length<3}}">
+        <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
+      </block>
+      </view>
+    </block>
+
+    <block wx:if="{{images.length>=3}}">
+      <view class="question-images-area">
+      <block wx:for="{{images}}" wx:key="*this">
+        <block wx:if="{{images.length>index+3&&index<3}}">
+          <view class="q-image-wrap">
+            <image class="q-image" src="{{images[index+3]}}" data-idx="{{index+3}}"bindtap="handleImagePreview" mode='aspectFill'></image>
+          </view>
+        </block>
+      </block>
+
+      <block wx:if="{{images.length<6}}">
+        <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
+      </block>
+      </view>
+    </block>
+
+    <block wx:if="{{images.length>=6}}">
+      <view class="question-images-area">
+      <block wx:for="{{images}}" wx:key="*this">
+        <block wx:if="{{images.length>index+6&&index<3}}">
+          <view class="q-image-wrap">
+            <image class="q-image" src="{{images[index+6]}}" data-idx="{{index+6}}"bindtap="handleImagePreview" mode='aspectFill'></image>   
+          </view>
+        </block>
+      </block>
+
+      <block wx:if="{{images.length<9}}">
+        <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
+      </block>
+      </view>
+    </block>
+  </view>
+
+  <view class='buttom'>
+    <button form-type='submit'>发布</button>
+  </view>
 </form>

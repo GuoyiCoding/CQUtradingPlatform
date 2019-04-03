@@ -17,7 +17,7 @@ Page({
 
     var that = this
     wx.request({
-      url: app.data.apiUrl + '/goods/' + that.data.isList + '/' + that.data.num,
+      url: '/goods/' + that.data.isList + '/' + that.data.num,
       success: function (res) {
         that.setData({
           goods: res.data.data
