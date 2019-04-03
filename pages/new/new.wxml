@@ -1,17 +1,22 @@
 <form bindsubmit="formSubmit">
   <view class='top-card'>
   <view class='title'>
-    <input name="name" placeholder="商品简介"></input>
+    <input name="name" placeholder="商品简介（20字以内）"maxlength="20"></input>
   </view>
   <view class='link'></view>
   <view class='describle'>
   <!-- <input name="describle" placeholder='商品描述'></input> -->
-  <textarea name="describle"  placeholder="商品描述" />
+  <textarea name="describle"  placeholder="商品描述（200字以内）"maxlength="200" />
   </view>
 
+  <scroll-view scroll-x="true" style = "width:100%;position: relative" scroll-into-view="{{toView}}" scroll-with-animation = "true">
+    <block wx:for="{{images}}" wx:key="*this">
+      <image src='{{item}}' data-idx="{{index}}"
+           bindtap="handleImagePreview"mode='aspectFill' class='img'></image>
+    </block>
+</scroll-view>
   <view class='img-span'>
-    <image wx:for="{{img}}" src='{{item}}' bindtap='updateimg' class='img'></image>
-    <image src='/img/add_image.png' bindtap='updataimg' class='img'></image>
+    <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
   </view> 
 </view>
 
@@ -22,8 +27,8 @@
   <view class='link'></view>
 
    <view class='span'> 
-   <picker bindchange="bindPickerChange" range-key='name' range="{{classification}}" value='{{index}}'>
-      分类:<text>{{'二手书'}}</text>
+   <picker bindchange="bindPickerChange" range="{{type}}" value='{{index}}'>
+      选择分类:<text>{{type[typeId]}}</text>
   </picker>
    </view>   
 </view>

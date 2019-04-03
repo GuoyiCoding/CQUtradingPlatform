@@ -4,9 +4,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img: null,
-    classId: null,
-    classification: null,
+    images: [],
+    typeId:0,
+    // : [
+    //   {
+    //     id: 0,
+    //     name: '美国'
+    //   },
+    //   {
+    //     id: 1,
+    //     name: '中国'
+    //   },
+    //   {
+    //     id: 2,
+    //     name: '巴西'
+    //   },
+    //   {
+    //     id: 3,
+    //     name: '日本'
+    //   }
+    // ],
+    type: ['手机数码','书籍','家用电器','其他'],
   },
 
   /**
@@ -38,10 +56,29 @@ Page({
     })
   },
   bindPickerChange: function (e) {
-  var that = this
-  console.log('携带值为', e.detail.value)
-  that.setData({
-    classId: that.data.classification[e.detail.value].id
-  })
+    var that = this
+    console.log('携带值为', e.detail.value)
+    that.setData({
+      typeId: e.detail.value
+    })
+  },
+
+  chooseImage(e) {
+    var that = this
+    wx.chooseImage({
+      count: 9,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var tempFilePaths = res.tempFilePaths;
+        // app.globalData.imgs = tempFilePaths
+        var paths = []
+        paths.push(tempFilePaths)
+        that.setData({
+          images: paths
+        });
+      }
+    })
   },
 })
