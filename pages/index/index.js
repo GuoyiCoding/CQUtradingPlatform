@@ -16,14 +16,14 @@ Page({
   onShow: function () {
 
     var that = this
-    wx.request({
-      url: '/goods/' + that.data.isList + '/' + that.data.num,
-      success: function (res) {
-        that.setData({
-          goods: res.data.data
-        })
-      }
-    })
+    // wx.request({
+    //   url: '/goods/' + that.data.isList + '/' + that.data.num,
+    //   success: function (res) {
+    //     that.setData({
+    //       goods: res.data.data
+    //     })
+    //   }
+    // })
   },
   onLoad: function () {
     wx.showToast({
@@ -42,14 +42,14 @@ Page({
     that.setData({
       num: that.data.num += 5
     })
-    wx.request({
-      url: app.data.apiUrl + '/goods/' + that.data.isList + '/' + that.data.num,
-      success: function (res) {
-        that.setData({
-          goods: res.data.data
-        })
-      }
-    })
+    // wx.request({
+    //   url: app.data.apiUrl + '/goods/' + that.data.isList + '/' + that.data.num,
+    //   success: function (res) {
+    //     that.setData({
+    //       goods: res.data.data
+    //     })
+    //   }
+    // })
   },
 })
 

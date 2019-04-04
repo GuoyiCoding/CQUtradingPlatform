@@ -1,31 +1,14 @@
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
     images: [],
-
     typeId:0,
-    // : [
-    //   {
-    //     id: 0,
-    //     name: '美国'
-    //   },
-    //   {
-    //     id: 1,
-    //     name: '中国'
-    //   },
-    //   {
-    //     id: 2,
-    //     name: '巴西'
-    //   },
-    //   {
-    //     id: 3,
-    //     name: '日本'
-    //   }
-    // ],
     type: ['手机数码','书籍','家用电器','其他'],
+    isShowDelete:false,
+    appid:'f12ccbd03ff68662a7b83721bc4eb42a'
   },
 
   /**
@@ -65,6 +48,9 @@ Page({
   },
 
   chooseImage(e) {
+    this.setData({
+      isShowDelete: false
+    });
     var that = this
     wx.chooseImage({
       count: 9-that.data.images.length,
@@ -79,11 +65,44 @@ Page({
         {
           paths.push(tempFilePaths[i])
         }
-        console.log(paths)
         that.setData({
           images: paths
         });
       }
     })
   },
+  clearDelete(e) {
+    this.setData({
+      isShowDelete: false
+    });
+  },
+  showDelete(e) {
+    this.setData({
+      isShowDelete: true
+    });
+  },
+  removeImageFirst:function(e) {/*带有function的是复杂的写法？ */
+    var idx = e.currentTarget.dataset.index;
+    var images = this.data.images
+    images.splice(idx, 1)
+    this.setData({
+      images:images
+    })
+  },
+  removeImageSecond: function (e) {/*带有function的是复杂的写法？ */
+    var idx = e.currentTarget.dataset.index+3
+    var images = this.data.images
+    images.splice(idx, 1)
+    this.setData({
+      images: images
+    })
+  },
+  removeImageThird: function (e) {/*带有function的是复杂的写法？ */
+    var idx = e.currentTarget.dataset.index+6
+    var images = this.data.images
+    images.splice(idx, 1)
+    this.setData({
+      images: images
+    })
+  }, 
 })

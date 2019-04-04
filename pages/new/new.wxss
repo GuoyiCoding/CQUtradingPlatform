@@ -61,20 +61,19 @@
 }
 
 .img{
-  margin-left: 40rpx;
+  margin-left: 37rpx;
   margin-top: 37rpx;
   width:200rpx;
   height: 200rpx;
-  
 }
 .img-delete{
   width:40rpx;
   height:40rpx;
   border:0;
-  margin-left: -40rpx;
+  margin-left: -40rpx;/*不会占用以前的位置*/
   margin-bottom: 180rpx;
   /* position:relative;/*学习relative的用法！！！！！！
-  left:-40rpx;
+  left:-40rpx; relative依然会占用以前的位置
   bottom: 180rpx; */
 }
 .grey-text{

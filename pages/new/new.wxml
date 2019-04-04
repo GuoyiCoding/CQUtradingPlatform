@@ -1,4 +1,4 @@
-<form bindsubmit="formSubmit">
+<form bindsubmit="formSubmit"bindtap='clearDelete'>
   <view class='top-card'>
     <view class='title'>
       <input name="name" placeholder="标题 品类品牌型号"maxlength="20"></input>
@@ -27,7 +27,7 @@
   <!-- <view class='link'></view> -->
 
   <block wx:if="{{images.length<1}}">
-    <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
+    <image src='../../image/add_image.png' catchtap='chooseImage' class='img'></image>
   </block>
 
   <block wx:if="{{images.length>0}}">
@@ -35,12 +35,15 @@
       <block wx:for="{{images}}" wx:key="*this">
         <block wx:if="{{images.length>index&&index<3}}">
             <image src="{{item}}" data-idx="{{index}}"
-            bindtap="handleImagePreview"mode='aspectFill'class='img'></image>
-            <image src="../../image/delete_image.png" class='img-delete'></image>
+                  catchtap="handleImagePreview"bindlongpress="showDelete"
+                  mode='aspectFill'class='img'></image>
+            <block wx:if="{{isShowDelete}}">
+              <image src="../../image/delete_image.png"data-index="{{index}}" catchtap="removeImageFirst"class='img-delete'></image>
+            </block>
         </block>
       </block>
       <block wx:if="{{images.length<3}}">
-        <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
+        <image src='../../image/add_image.png' catchtap='chooseImage' class='img'></image>
       </block>
       </view>
   </block>
@@ -49,11 +52,16 @@
       <view class="image-area">
       <block wx:for="{{images}}" wx:key="*this">
         <block wx:if="{{images.length>index+3&&index<3}}">
-            <image class='img' src="{{images[index+3]}}" data-idx="{{index+3}}"bindtap="handleImagePreview" mode='aspectFill'></image>
+            <image src="{{images[index+3]}}" data-idx="{{index+3}}"
+            catchtap="handleImagePreview"bindlongpress="showDelete" 
+              mode='aspectFill'class='img'></image>
+            <block wx:if="{{isShowDelete}}">
+              <image src="../../image/delete_image.png"data-index="{{index}}" catchtap="removeImageSecond"class='img-delete'></image>
+            </block>
         </block>
       </block>
       <block wx:if="{{images.length<6}}">
-        <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
+        <image src='../../image/add_image.png' catchtap='chooseImage' class='img'></image>
       </block>
       </view>
   </block>
@@ -62,11 +70,16 @@
       <view class="image-area">
       <block wx:for="{{images}}" wx:key="*this">
         <block wx:if="{{images.length>index+6&&index<3}}">
-            <image class='img' src="{{images[index+6]}}" data-idx="{{index+6}}"bindtap="handleImagePreview" mode='aspectFill'></image>   
+            <image src="{{images[index+6]}}" data-idx="{{index+6}}"
+            catchtap="handleImagePreview"bindlongpress="showDelete" 
+            mode='aspectFill' class='img'></image>
+            <block wx:if="{{isShowDelete}}">
+              <image src="../../image/delete_image.png"data-index="{{index}}" catchtap="removeImageThird"class='img-delete'></image>
+            </block>   
         </block>
       </block>
       <block wx:if="{{images.length<9}}">
-        <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
+        <image src='../../image/add_image.png' catchtap='chooseImage' class='img'></image>
       </block>
       </view>
   </block>
