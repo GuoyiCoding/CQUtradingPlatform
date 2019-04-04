@@ -5,6 +5,7 @@ Page({
    */
   data: {
     images: [],
+
     typeId:0,
     // : [
     //   {
@@ -66,7 +67,7 @@ Page({
   chooseImage(e) {
     var that = this
     wx.chooseImage({
-      count: 9,
+      count: 9-that.data.images.length,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {

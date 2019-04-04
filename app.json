@@ -6,8 +6,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor":"#fff",
-    "navigationBarTitleText": "重庆大学校园二手信息平台",
+    "navigationBarBackgroundColor":"#99ccff",
+    "navigationBarTitleText": "CQU校园二手信息平台",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
