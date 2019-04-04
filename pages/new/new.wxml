@@ -1,38 +1,42 @@
 <form bindsubmit="formSubmit">
   <view class='top-card'>
     <view class='title'>
-      <input name="name" placeholder="商品简介（20字以内）"maxlength="20"></input>
+      <input name="name" placeholder="标题 品类品牌型号"maxlength="20"></input>
     </view>
     <view class='link'></view>
     <view class='describle'>
-      <textarea name="describle"  placeholder="商品描述（200字以内）"maxlength="200" />
+      <textarea placeholder="描述宝贝转手原因、入手渠道和使用感受"maxlength="200" />
     </view>
   </view>
 
   <view class='buttom-card'>
-    <view class='span'>
-      <input name="price" placeholder='价格（元）' type='digit'></input>
-    </view> 
-    <view class='span'> 
+  <view class='span'> 
       <picker bindchange="bindPickerChange" range="{{type}}" value='{{index}} '>
         <text class='grey-text'>选择分类:</text>
         <text>{{type[typeId]}}</text>
       </picker>
-    </view>   
+    </view>
+    <view class='span'>
+      <input name="price" placeholder='出售价格（元）' type='digit'></input>
+    </view> 
+    <view class='span'>
+      <input placeholder='联系电话' type='number'maxlength="20"></input>
+    </view>
   </view>
 
-  <view class='link'></view>
+  <!-- <view class='link'></view> -->
 
   <block wx:if="{{images.length<1}}">
     <image src='../../image/add_image.png' bindtap='chooseImage' class='img'></image>
   </block>
 
   <block wx:if="{{images.length>0}}">
-      <view class="question-images-area">
+      <view class="image-area">
       <block wx:for="{{images}}" wx:key="*this">
         <block wx:if="{{images.length>index&&index<3}}">
             <image src="{{item}}" data-idx="{{index}}"
             bindtap="handleImagePreview"mode='aspectFill'class='img'></image>
+            <image src="../../image/delete_image.png" class='img-delete'></image>
         </block>
       </block>
       <block wx:if="{{images.length<3}}">
@@ -42,7 +46,7 @@
   </block>
 
   <block wx:if="{{images.length>=3}}">
-      <view class="question-images-area">
+      <view class="image-area">
       <block wx:for="{{images}}" wx:key="*this">
         <block wx:if="{{images.length>index+3&&index<3}}">
             <image class='img' src="{{images[index+3]}}" data-idx="{{index+3}}"bindtap="handleImagePreview" mode='aspectFill'></image>
@@ -55,7 +59,7 @@
   </block>
 
   <block wx:if="{{images.length>=6}}">
-      <view class="question-images-area">
+      <view class="image-area">
       <block wx:for="{{images}}" wx:key="*this">
         <block wx:if="{{images.length>index+6&&index<3}}">
             <image class='img' src="{{images[index+6]}}" data-idx="{{index+6}}"bindtap="handleImagePreview" mode='aspectFill'></image>   
