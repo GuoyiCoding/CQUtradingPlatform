@@ -147,65 +147,55 @@ Page({
         icon: 'loading',
         duration: 30000
       })
-      console.log("userId=" + app.data.userInfo.id +
+      console.log("openId=" + that.data.appid +
         " name=" + value.name+
         " describle=" + value.describle +
         " typeId=" + that.data.typeId +
         " price=" + value.price+
         " telephone=" + value.telephone)
-      wx.uploadFile({
-        url: app.data.apiUrl + '/goods/add',
-        filePath: images[i],
-        name: 'picture',/*约定name为picture */
-        header: {
-          "Content-Type": "multipart/form-data"
-        },
-        formdata: {
-          'openid': openid,
-          'name': value.name,
-          'describle': value.describle,
-          'type': that.data.typeId,
-          'price': value.price,
-          'telephone': value.telephone,
-          // 'name': 1,
-          'picture': images[i]/*文件流放在formdata里面*/
-        },
-        success: function (res) {
-          console.log(res.data)
-          if (that.data.img != null) {
-            for (var i = 0; i < that.data.img.length; i++) {
-              wx.showToast({
-                icon: 'loading',
-                title: '正在上传'
-              })
-              console.log(that.data.img[i])
-              wx.uploadFile({
-                url: app.data.apiUrl + '/img/add',
-                filePath: that.data.img[i],
-                name: 'file',
-                formData: {
-                  goodsId: res.data.data.id,
-                },
-                success: function (res) {
-                  console.log(res.data)
-                  wx.showToast({
-                    title: '上传成功',
-                  })
-                  wx.switchTab({
-                    url: '/pages/index/index',
-                  })
-                },
-                fail: function () {
-                  wx.showToast({
-                    icon: 'none',
-                    title: '上传失败',
-                  })
-                }
-              })
+      var images=that.data.images
+      var uploadImgCount=0
+      for(var i=0;i<images.length;i++)
+      {
+        wx.uploadFile({
+          url: 'http://120.78.213.69:8000/upload_product/',
+          filePath: that.data.images[i],
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          name:'picture',
+          formdata: {
+            'openid': 'aaa',
+            'name': JSON.stringify(value.name),
+            'describle': JSON.stringify(value.describle),
+            'type': that.data.typeId,
+            'price': JSON.stringify(value.price),
+            'telephone': JSON.stringify(value.telephone),
+            // 'name': 1,
+            'picture': that.data.images[i]/*文件流放在formdata里面*/
+          },
+          success: function (res) {
+            console.log(res)
+            uploadImgCount++;
+            if (uploadImgCount == images.length) {
+              wx.hideToast();
+              // wx.switchTab({
+              //   url: resultUrl
+              // })
             }
+          },
+          fail: function (res) {
+            wx.hideToast();
+            wx.showModal({
+              title: '错误提示',
+              content: '上传图片失败',
+              showCancel: false,
+              success: function (res) { }
+            })
           }
-        }
-      })
+        })
+      }
+      
     } 
   }
 })
