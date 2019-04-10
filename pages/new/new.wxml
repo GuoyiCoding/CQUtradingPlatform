@@ -85,7 +85,6 @@
   </block>
 
   <view class='buttom'></view>
-
-  <button id='submit-bt'form-type='submit'catchtap="newProduct">发布</button>
+  <button id='submit-bt'form-type='submit'>发布</button>
   
 </form>

@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.2",
+	"libVersion": "2.5.0",
 	"appid": "wxd82a2a5482c5b6bc",
 	"projectname": "CQUtradingPlatform",
 	"debugOptions": {

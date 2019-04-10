@@ -30,14 +30,14 @@ Page({
    */
   onShow: function () {
     var that = this
-    wx.request({
-      url: '/goods/class',
-      success: function (res) {
-        that.setData({
-          classification: res.data.data
-        })
-      }
-    })
+    // wx.request({
+    //   url: '/goods/class',
+    //   success: function (res) {
+    //     that.setData({
+    //       classification: res.data.data
+    //     })
+    //   }
+    // })
   },
   bindPickerChange: function (e) {
     var that = this
@@ -164,15 +164,13 @@ Page({
             "Content-Type": "multipart/form-data"
           },
           name:'picture',
-          formdata: {
+          formData: {
             'openid': 'aaa',
-            'name': JSON.stringify(value.name),
-            'describle': JSON.stringify(value.describle),
+            'name': value.name,
+            'describe': value.describe,
             'type': that.data.typeId,
-            'price': JSON.stringify(value.price),
-            'telephone': JSON.stringify(value.telephone),
-            // 'name': 1,
-            'picture': that.data.images[i]/*文件流放在formdata里面*/
+            'price': value.price,
+            'telephone': value.telephone,
           },
           success: function (res) {
             console.log(res)
