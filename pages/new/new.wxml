@@ -4,8 +4,8 @@
       <input name="name" placeholder="标题 品类品牌型号"maxlength="20"></input>
     </view>
     <view class='link'></view>
-    <view class='describle'>
-      <textarea name='describle'placeholder="描述宝贝转手原因、入手渠道和使用感受"maxlength="200"/>
+    <view class='describe'>
+      <textarea name='describe'placeholder="描述宝贝转手原因、入手渠道和使用感受"maxlength="200"/>
     </view>
   </view>
 

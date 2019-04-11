@@ -20,7 +20,7 @@
   font-size: 30rpx;
 }
 
-.top-card .describle{
+.top-card .describe{
   margin-left:30rpx; 
   font-size: 30rpx;
   margin-top: 30rpx;

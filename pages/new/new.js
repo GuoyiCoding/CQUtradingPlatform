@@ -114,7 +114,7 @@ Page({
         title: '标题不能为空',
         icon: "none"
       })
-    }else if (value.describle == "") {
+    }else if (value.describe == "") {
       wx.showToast({
         title: '描述不能为空',
         icon: "none"
@@ -149,51 +149,77 @@ Page({
       })
       console.log("openId=" + that.data.appid +
         " name=" + value.name+
-        " describle=" + value.describle +
+        " describe=" + value.describe +
         " typeId=" + that.data.typeId +
         " price=" + value.price+
         " telephone=" + value.telephone)
       var images=that.data.images
       var uploadImgCount=0
-      for(var i=0;i<images.length;i++)
-      {
-        wx.uploadFile({
-          url: 'http://120.78.213.69:8000/upload_product/',
-          filePath: that.data.images[i],
-          header: {
-            "Content-Type": "multipart/form-data"
-          },
-          name:'picture',
-          formData: {
-            'openid': 'aaa',
-            'name': value.name,
-            'describe': value.describe,
-            'type': that.data.typeId,
-            'price': value.price,
-            'telephone': value.telephone,
-          },
-          success: function (res) {
-            console.log(res)
-            uploadImgCount++;
-            if (uploadImgCount == images.length) {
-              wx.hideToast();
-              // wx.switchTab({
-              //   url: resultUrl
-              // })
-            }
-          },
-          fail: function (res) {
-            wx.hideToast();
-            wx.showModal({
-              title: '错误提示',
-              content: '上传图片失败',
-              showCancel: false,
-              success: function (res) { }
-            })
+      wx.uploadFile({
+        url: 'http://120.78.213.69:8000/upload_product/',
+        filePath: that.data.images[0],
+        header: {
+          "Content-Type": "multipart/form-data"
+        },
+        formData: {
+          'openid': 'aaa',
+          'name': value.name,
+          'describe': value.describe,
+          'type': that.data.typeId,
+          'price': value.price,
+          'telephone': value.telephone,
+        },
+        name:'file',
+        success: function (res) {
+          console.log(typeof(res))//直接输出就正常，前面加上字符就会转义！！！
+          //格式不是json对象就是str
+          var jsdata = res.data;
+          jsdata=JSON.parse(jsdata)
+          var msg = jsdata.msg;
+          var gData=jsdata.data;
+          console.log(typeof(jsdata))
+          console.log(msg)
+          console.log(gData)
+          var product_id=gData[0]['product_id']
+          console.log('id::::' + product_id)
+          if (msg == "failed") { 
           }
-        })
-      }
-      
+          else {
+            for (var i = 0; i < images.length; i++) {
+              wx.uploadFile({
+                url: 'http://120.78.213.69:8000/upload_picture/',
+                filePath: that.data.images[i],
+                header: {
+                  "Content-Type": "multipart/form-data"
+                },
+                formData:{
+                  product_id: product_id
+                },
+                name: 'file',
+                success: function (res) {
+                  console.log(res)
+                  uploadImgCount++;
+                  if (uploadImgCount == images.length) {
+                    wx.hideToast();
+                    // wx.switchTab({
+                    //   url: resultUrl
+                    // })
+                  }
+                },
+                fail: function (res) {
+                  wx.hideToast();
+                  wx.showModal({
+                    title: '错误提示',
+                    content: '上传图片失败',
+                    showCancel: false,
+                    success: function (res) { }
+                  })
+                }
+              })
+            }
+          }
+        },
+      })    
     } 
   }
 })
