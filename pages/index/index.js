@@ -4,9 +4,9 @@ var app = getApp();
 
 Page({
   data: {
-    goods: null,
-    num: 5, //默认首页初始化五条商品信息
-    classId: {
+    goods: [],
+    num: 20, //默认首页初始化五条商品信息
+    typeId: {
       'phone': 1,
       'book': 2,
       'computer': 3,
@@ -14,6 +14,7 @@ Page({
   },
 
   onShow: function () {
+    var that = this
     wx.showToast({
       title: '刷新中...',
       icon: 'loading',
@@ -22,7 +23,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://120.78.213.69:8000/show_all_product/',
+      url: 'http://120.78.213.69:8000/show_latest_product/',
       method: 'POST',
       header: {
         "Content-Type": 'application/x-www-form-urlencoded'
@@ -31,17 +32,42 @@ Page({
         type: 1
       },
       success: function (res) {
-        console.log('返回    ' + JSON.stringify(res))
-        // var jsdata = res.data;
-        // var msg = jsdata.msg;
+        // console.log(res)
+        var jsdata = res.data;
+        var msg = jsdata.msg;
 
-        // that.data.historySmallImages = []
-        // that.data.historyBigImages = []
-        // if (msg == "failed") {
-        //   that.setData({
-        //     historyHave: false
-        //   })
-        // }
+        if (msg == "failed") {
+          console.log('获取最新商品失败')
+        }
+        else{
+          // console.log(jsdata)
+          // console.log(typeof (jsdata))
+          var strdata=jsdata['data']
+          // console.log(strdata)
+          strdata=JSON.parse(strdata)
+          var goods=[]
+          for(var i=0;i<strdata.length;i++)
+          {
+            var fdata=strdata[i].fields
+            var name=fdata.name
+            var image = fdata.file
+            var price = fdata.price
+            var describe = fdata.describe
+            var product_id = strdata[i].pk
+            // console.log(product_id)
+            // console.log(fdata)
+            goods.push({
+              'product_id': product_id,
+              'name': name,
+              'describe': describe,
+              'price': price
+            });
+          }
+          that.setData({
+            goods:goods
+          })
+          // console.log(this.data.goods)
+        }
         // else {
         //   var strdata = jsdata.data
         //   // console.log('历史返回    ' + strdata)
