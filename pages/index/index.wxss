@@ -1,23 +1,42 @@
 /**index.wxss**/
-.swiper {
-  height: 350rpx;
-  width: 100%;
-}
-
-.swiper image {
-  height: 100%;
-  width: 100%;
-}
-
+/* 水平布局器 */
 .layout_horizontal {
   display: flex;
   /*row 横向  column 列表  */
-  flex-direction: row;
+  /* flex-direction: row; */
 }
-
 .layout_horizontal view{
   text-align: center;
 }
+.layout_horizontal view text {
+    font-size: 24rpx;
+}
+.layout_horizontal .title {
+    margin: 10rpx;
+    height: 60rpx;
+}
+.layout_horizontal view text {
+  font-size: 24rpx;
+}
+.layout_horizontal .classifition{
+  margin-top: 10rpx;
+}
+.layout_horizontal .title {
+  margin: 10rpx;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 15rpx;
+  font-size: 25rpx;
+}
+.layout_horizontal  .class-div{
+  margin: 1rpx;
+  height: 100rpx
+}
+/* .layout_horizontal  .class-div image{
+  margin: 0 auto;
+} */
+
+
 
  .img{
    /* margin: 20px; */
@@ -27,46 +46,22 @@
   width: 70rpx;
 } 
 
-.layout_horizontal view text {
-    font-size: 24rpx;
-}
 
-.layout_horizontal .title {
-    margin: 10rpx;
-    height: 60rpx;
-}
 
-.layout_horizontal view text {
-  font-size: 24rpx;
-}
-
-.layout_horizontal .classifition{
-  margin-top: 10rpx;
-}
-
-.layout_horizontal .title {
-  margin: 10rpx;
-  height: 60rpx;
-  background-color: #fff;
-  border-radius: 15rpx;
-  font-size: 25rpx;
-}
-
-.layout_horizontal  .class-div{
-  margin: 1rpx;
-  height: 100rpx
-}
-.layout_horizontal  .class-div image{
-  margin: 0 auto;
+/* 商品卡片 */
+.goods-area {
+  margin-left: 15rpx;
+  margin-right: 15rpx;
 }
 .goods-card {
-  width: 95%;
-  height: 290rpx;
-  margin: 20rpx;
+  width: 344rpx;
+  height: 680rpx;
+  margin: 10rpx;
   background-color: #fff;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
+  position: relative;
+  float: left
 }
-
 .goods-card .user-img {
   height: 70rpx;
   width: 70rpx;
@@ -74,19 +69,16 @@
   left: 25rpx;
   top: 25rpx;
 }
-
 .goods-card .goods-title {
   position: relative;
   top: 20rpx;
   left: 20rpx;
 }
-
 .goods-card .goods-time {
   position: relative;
   left: 20rpx;
   font-size: 24rpx;
 }
-
 .goods-card .goods-price {
   position: relative;
   top: 20rpx;
@@ -94,7 +86,6 @@
   float: right;
   color: red;
 }
-
 .goods-img-layout_horizontal {
   /* display: flex;
   /*row 横向  column 列表  */
@@ -102,21 +93,26 @@
 }
 .goods-img-layout_horizontal .img-float{
   float: left;
-  width: 33.3%;
+  width: 100%;
 }
-
 .goods-img-layout_horizontal image {
   /* width: 50rpx; */
    margin: 20rpx;
    height: 150rpx;
     width: 85% 
 }
+.goods-image {
+  /* width: 50rpx; */
+   margin: 20rpx;
+   /* height: 150rpx; */
+    width: 95% 
+}
 
-.box {
+.info-box {
   width: 100%;
   height: 100rpx;
 }
-
+/* 用户头像 */
 .box1 {
   height: 100%;
   float: left;
@@ -130,7 +126,6 @@
   width: 85%;
   /* background-color: blue; */
 }
-
 .box3 {
   float: left;
   width: 85%;

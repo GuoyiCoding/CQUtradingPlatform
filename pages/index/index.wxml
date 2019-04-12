@@ -34,29 +34,26 @@
   </view>
 </view>
 
-<view wx:for="{{goods}}" wx:key="*this">
-<navigator hover-class="navigator-hover">
-  <view class='goods-card'>
-    <view class='box'>
-      <!-- <view class='box1'>
-       <image class='user-img' src='{{item.userImg}}'></image> 
-      </view> -->
+<view wx:for="{{goods}}" wx:key="*this"class='goods-area'>
+<navigator hover-class="navigator-hover"class='goods-card'>
+        <image style='flex:1'class='goods-image' src='{{item.goodsImg}}'></image>
+    <view class='info-box'>
       <view class='box2'>
        <text class='goods-title'>{{item.name}}</text>
        <text class='goods-title'>{{item.describe}}</text>  
        <text class='box3' class='goods-price'>￥{{item.price}}</text> 
-      </view>
-       <!-- <view class='box3'>
-       <text class='goods-time'>{{item.time}}</text> 
-      </view>              -->
-    </view>
-
-    <view class='goods-img-layout_horizontal'>
-      <view class='img-float'>
-        <image style='flex:1' src='{{item.goodsImg}}'></image>
-      </view>                     
-    </view>
-  </view>
+      </view>      
+    </view>  
+</navigator>
+<navigator hover-class="navigator-hover"class='goods-card'>
+        <image style='flex:1'class='goods-image' src='{{item.goodsImg}}'></image>
+    <view class='info-box'>
+      <view class='box2'>
+       <text class='goods-title'>{{item.name}}</text>
+       <text class='goods-title'>{{item.describe}}</text>  
+       <text class='box3' class='goods-price'>￥{{item.price}}</text> 
+      </view>      
+    </view>  
 </navigator>
 </view>
 

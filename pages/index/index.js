@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 var app = getApp();
-
+var imageServer='http://120.78.213.69:8088/'/*一定要加http！！！*/
 Page({
   data: {
     goods: [],
@@ -32,7 +32,7 @@ Page({
         type: 1
       },
       success: function (res) {
-        // console.log(res)
+        console.log(res)
         var jsdata = res.data;
         var msg = jsdata.msg;
 
@@ -50,17 +50,18 @@ Page({
           {
             var fdata=strdata[i].fields
             var name=fdata.name
-            var image = fdata.file
+            var image = imageServer+fdata.file
             var price = fdata.price
             var describe = fdata.describe
             var product_id = strdata[i].pk
-            // console.log(product_id)
+            console.log(image)
             // console.log(fdata)
             goods.push({
               'product_id': product_id,
               'name': name,
               'describe': describe,
-              'price': price
+              'price': price,
+              'goodsImg':image
             });
           }
           that.setData({
