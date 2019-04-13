@@ -1,23 +1,23 @@
   <view class='top-card'>
     <view class='title'>
-      <text></text>
+      <text>{{name}}</text>
     </view>
     <view class='link'></view>
     <view class='describe'>
-      <text></text>
+      <text>{{describe}}</text>
     </view>
   </view>
 
   <view class='buttom-card'>
-  <view class='span'> 
+  <!-- <view class='span'> 
         <text></text>
-    </view>
+    </view> -->
     <view class='span'>
-      <text></text>
+      <text>￥{{price}}</text>
     </view> 
-    <view class='span'>
-      <text></text>
-    </view>
+    <!-- <view class='span'>
+      <text>{{telephone}}</text>
+    </view> -->
   </view>
 
   <block wx:if="{{images.length<1}}">

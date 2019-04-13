@@ -6,11 +6,10 @@ Page({
   data: {
     goods: [],
     product_id:null,
-    typeId: {
-      'phone': 1,
-      'book': 2,
-      'computer': 3,
-    }
+    name:'',
+    describe:'',
+    price:null,
+    telephone:null,
   },
   onLoad: function (option) {
     this.setData({
@@ -34,18 +33,29 @@ Page({
         product_id: this.data.product_id
       },
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         var jsdata = res.data;
         var msg = jsdata.msg;
         if (msg == "failed") {
           console.log('获取最新商品失败')
         }
         else {
-        //   // console.log(jsdata)
+          console.log(jsdata)
         //   // console.log(typeof (jsdata))
-        //   var strdata = jsdata['data']
-        //   // console.log(strdata)
-        //   strdata = JSON.parse(strdata)
+          var strdata = jsdata['data']
+          // console.log(strdata)
+          var name = strdata['product']['name']
+          var describe = strdata['product']['describe']
+          var price=strdata['product']['price']
+          var telephone = strdata['product']['telephone']
+          var strPictures = strdata['pictures']
+          console.log(strPictures)
+          // strPictures="'"+strPictures+"'"
+          // var strLen = strPictures.length
+          // strPictures=strPictures.substring(1,strLen-1)
+          // console.log(strPictures)
+          jsPictures=JSON.parse(strPictures)
+          // console.log(jsPictures[0]['fields'])
         //   var goods = []
         //   for (var i = 0; i < strdata.length; i++) {
         //     var fdata = strdata[i].fields
@@ -64,9 +74,13 @@ Page({
         //       'goodsImg': image
         //     });
         //   }
-        //   that.setData({
-        //     goods: goods
-        //   })
+          that.setData({
+            name:name,
+            describe:describe,
+            price:price,
+            telephone:telephone
+
+          })
         //   // console.log(this.data.goods)
         }
       }
