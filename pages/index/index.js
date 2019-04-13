@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 var app = getApp();
-var imageServer='http://120.78.213.69:8088/'/*一定要加http！！！*/
+var imageServer ='http://120.78.213.69:8088/thumb_'/*一定要加http！！！*/
 Page({
   data: {
     goods: [],

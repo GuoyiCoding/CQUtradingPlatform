@@ -1,10 +1,10 @@
 //index.js
 //获取应用实例
 var app = getApp();
-var imageServer = 'http://120.78.213.69:8088/'/*一定要加http！！！*/
+var imageServer = 'http://120.78.213.69:8088/thumb_'/*一定要加http！！！*/
 Page({
   data: {
-    goods: [],
+    pictures: [],
     product_id:null,
     name:'',
     describe:'',
@@ -38,7 +38,7 @@ Page({
         var msg = jsdata.msg;
         if (msg == "failed") {
           console.log('获取最新商品失败')
-        }
+        } 
         else {
           console.log(jsdata)
         //   // console.log(typeof (jsdata))
@@ -50,36 +50,25 @@ Page({
           var telephone = strdata['product']['telephone']
           var strPictures = strdata['pictures']
           console.log(strPictures)
+          console.log(typeof(strPictures))
           // strPictures="'"+strPictures+"'"
           // var strLen = strPictures.length
           // strPictures=strPictures.substring(1,strLen-1)
           // console.log(strPictures)
-          jsPictures=JSON.parse(strPictures)
+          var jsPictures=JSON.parse(strPictures)
           // console.log(jsPictures[0]['fields'])
         //   var goods = []
-        //   for (var i = 0; i < strdata.length; i++) {
-        //     var fdata = strdata[i].fields
-        //     var name = fdata.name
-        //     var image = imageServer + fdata.file
-        //     var price = fdata.price
-        //     var describe = fdata.describe
-        //     var product_id = strdata[i].pk
-        //     // console.log(image)
-        //     // console.log(fdata)
-        //     goods.push({
-        //       'product_id': product_id,
-        //       'name': name,
-        //       'describe': describe,
-        //       'price': price,
-        //       'goodsImg': image
-        //     });
-        //   }
+          var pictures=[]
+          for (var i = 0; i < jsPictures.length; i++) {
+            var fdata = imageServer+jsPictures[i].fields.file
+            pictures.push(fdata)
+          }
           that.setData({
             name:name,
             describe:describe,
             price:price,
-            telephone:telephone
-
+            telephone:telephone,
+            pictures:pictures
           })
         //   // console.log(this.data.goods)
         }
@@ -88,5 +77,27 @@ Page({
   },
   onShow: function () {
   },
+  iWant:function(){
+    var that=this
+    wx.showModal({
+      title: '',
+      showCancel:true,
+      cancelText:'取消',
+      cancelColor:'',
+      confirmText	:'拨打电话',
+      confirmColor:'',
+      content: '当前平台只支持电话联系卖家',
+      success(res) {
+        if (res.confirm) {
+          // console.log('用户点击确定')
+          wx.makePhoneCall({
+            phoneNumber: that.data.telephone,
+          })
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
+    })   
+  }
 })
 

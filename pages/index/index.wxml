@@ -1,21 +1,21 @@
 <view class='layout_horizontal'>
   <view style='flex:1'>
   <navigator url='/pages/classInfo/classInfo?classId={{classId.phone}}'>
-     <image class='img' src='/image/phone.png'></image> 
+     <image class='icon-img' src='/image/phone.png'></image> 
   </navigator>
   </view>
   <view style='flex:1;'>
   <navigator url='/pages/classInfo/classInfo?classId={{classId.book}}'>
-     <image class='img' src='/image/book.png'></image>
+     <image class='icon-img' src='/image/book.png'></image>
   </navigator>
   </view>
   <view style='flex:1;'>
   <navigator url='/pages/classInfo/classInfo?classId={{classId.computer}}'>
-     <image class='img' src='/image/dianqi.png'></image>
+     <image class='icon-img' src='/image/dianqi.png'></image>
   </navigator> 
   </view>
   <view style='flex:1'>
-     <image class='img' src='/image/more.png'></image> 
+     <image class='icon-img' src='/image/more.png'></image> 
   </view>   
 </view>
 

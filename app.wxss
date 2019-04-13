@@ -8,10 +8,4 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
-page{
-    /* background-color: #F8F8F8; */
-    /* background-color: rgb(255,251,225); */
-    background-color: rgb(241,241,246);
-    /* font-size: 16px; */
-    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
-}
+

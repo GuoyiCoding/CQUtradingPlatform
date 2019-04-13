@@ -1,5 +1,11 @@
 /**index.wxss**/
 /* 水平布局器 */
+page{
+    background-color: rgb(241,241,246);
+    /* font-size: 16px; */
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+
 .layout_horizontal {
   display: flex;
   /*row 横向  column 列表  */
@@ -38,12 +44,11 @@
 
 
 
- .img{
-   /* margin: 20px; */
+ .icon-img{
    position: relative;
    top: 20rpx;
-  height: 70rpx;
-  width: 70rpx;
+   height: 70rpx;
+   width: 70rpx;
 } 
 
 
@@ -103,9 +108,10 @@
 }
 .goods-image {
   /* width: 50rpx; */
-   margin: 20rpx;
+   /* margin: 20rpx; */
    /* height: 150rpx; */
-    width: 95% 
+    width: 100% ;
+    border-radius:20rpx 20rpx 0 0;
 }
 
 .info-box {

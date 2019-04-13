@@ -1,3 +1,8 @@
+page{
+    background-color: rgb(255,255,255);
+    /* font-size: 16px; */
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
 .link{
   height: 5rpx;
   background-color: #ECECEC;
@@ -8,7 +13,7 @@
 .top-card{
   background-color: white;
   width: 100%;
-  height: 450rpx;
+  /* height: 450rpx; */
   border-radius: 20rpx;
   position: relative;
 }
@@ -29,7 +34,7 @@
 .buttom-card{
   /* margin-top: 30rpx; */
   width: 100%;
-  height: 250rpx;
+  /* height: 250rpx; */
   background-color: white;
   border-radius: 20rpx;
   display: flex;
@@ -44,15 +49,21 @@
   font-size: 35rpx;
   flex: 1;
 }
-.image-area{
-  position:relative;
-}
 
 .buttom{
   height: 130rpx; 
   background-color: white;
 }
-#submit-bt{
+.goods-price {
+  top: 20rpx;
+  right: 20rpx;
+  color: red;
+}
+
+
+
+
+#iWant-bt{
   margin: 15rpx; 
   width: 720rpx;
   position:fixed;
@@ -60,21 +71,16 @@
   background-color: #6699cc
 }
 
-.img{
-  margin-left: 37rpx;
-  margin-top: 37rpx;
-  width:200rpx;
-  height: 200rpx;
+
+.image-area{
+  position:relative;
+  margin-left: 20rpx;
+  margin-bottom: 130rpx;
+  margin-top: 20rpx;
 }
-.img-delete{
-  width:40rpx;
-  height:40rpx;
-  border:0;
-  margin-left: -40rpx;/*不会占用以前的位置*/
-  margin-bottom: 180rpx;
-  /* position:relative;/*学习relative的用法！！！！！！
-  left:-40rpx; relative依然会占用以前的位置
-  bottom: 180rpx; */
+.img{
+  width:710rpx;
+  /* height: 200rpx; */
 }
 .grey-text{
   color: rgb(122, 122, 122)
