@@ -35,18 +35,8 @@
 </view>
 
 <view wx:for="{{goods}}" wx:key="*this"class='goods-area'>
-<navigator hover-class="navigator-hover"class='goods-card'>
-        <image style='flex:1'class='goods-image' src='{{item.goodsImg}}'></image>
-    <view class='info-box'>
-      <view class='box2'>
-       <text class='goods-title'>{{item.name}}</text>
-       <text class='goods-title'>{{item.describe}}</text>  
-       <text class='box3' class='goods-price'>￥{{item.price}}</text> 
-      </view>      
-    </view>  
-</navigator>
-<navigator hover-class="navigator-hover"class='goods-card'>
-        <image style='flex:1'class='goods-image' src='{{item.goodsImg}}'></image>
+<navigator hover-class="navigator-hover"class='goods-card'url="../detail/detail?product_id={{item.product_id}}" open-type="navigate">
+    <image style='flex:1'class='goods-image' src='{{item.goodsImg}}'></image>
     <view class='info-box'>
       <view class='box2'>
        <text class='goods-title'>{{item.name}}</text>

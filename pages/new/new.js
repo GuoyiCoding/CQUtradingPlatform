@@ -1,5 +1,5 @@
+var indexUrl='../index/index'
 Page({
-  
   /**
    * 页面的初始数据
    */
@@ -183,6 +183,10 @@ Page({
           var product_id=gData[0]['product_id']
           console.log('id::::' + product_id)
           if (msg == "failed") { 
+            wx.showToast({
+              title: '发布失败',
+              icon: "none"
+            })
           }
           else {
             for (var i = 0; i < images.length; i++) {
@@ -199,11 +203,22 @@ Page({
                 success: function (res) {
                   console.log(res)
                   uploadImgCount++;
-                  if (uploadImgCount == images.length) {
-                    wx.hideToast();
-                    // wx.switchTab({
-                    //   url: resultUrl
-                    // })
+                  if (uploadImgCount == that.data.images.length) {
+                    // wx.hideToast();
+                    wx.showToast({
+                      title: '发布成功',
+                      icon: 'success',
+                      mask: true,
+                      duration: 1500,
+                      success: function (res) {
+                        setTimeout(function () {
+                          //要延时执行的代码
+                          wx.switchTab({
+                            url: indexUrl
+                          })
+                        }, 1500) //延迟时间
+                      }
+                    })        
                   }
                 },
                 fail: function (res) {

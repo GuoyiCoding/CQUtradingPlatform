@@ -1,0 +1,81 @@
+.link{
+  height: 5rpx;
+  background-color: #ECECEC;
+  width: 95%;
+  position: relative;
+  left: 20rpx;
+}
+.top-card{
+  background-color: white;
+  width: 100%;
+  height: 450rpx;
+  border-radius: 20rpx;
+  position: relative;
+}
+
+.top-card .title{
+  height: 70rpx;
+  margin-left: 30rpx;
+  padding-top:20rpx; 
+  font-size: 30rpx;
+}
+
+.top-card .describe{
+  margin-left:30rpx; 
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+
+.buttom-card{
+  /* margin-top: 30rpx; */
+  width: 100%;
+  height: 250rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+}
+
+.buttom-card .span{
+  position: relative;
+  top: 30rpx;
+  left: 30rpx;
+  font-size: 35rpx;
+  flex: 1;
+}
+.image-area{
+  position:relative;
+}
+
+.buttom{
+  height: 130rpx; 
+  background-color: white;
+}
+#submit-bt{
+  margin: 15rpx; 
+  width: 720rpx;
+  position:fixed;
+  bottom:0;
+  background-color: #6699cc
+}
+
+.img{
+  margin-left: 37rpx;
+  margin-top: 37rpx;
+  width:200rpx;
+  height: 200rpx;
+}
+.img-delete{
+  width:40rpx;
+  height:40rpx;
+  border:0;
+  margin-left: -40rpx;/*不会占用以前的位置*/
+  margin-bottom: 180rpx;
+  /* position:relative;/*学习relative的用法！！！！！！
+  left:-40rpx; relative依然会占用以前的位置
+  bottom: 180rpx; */
+}
+.grey-text{
+  color: rgb(122, 122, 122)
+}

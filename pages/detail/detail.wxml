@@ -1,0 +1,80 @@
+  <view class='top-card'>
+    <view class='title'>
+      <text></text>
+    </view>
+    <view class='link'></view>
+    <view class='describe'>
+      <text></text>
+    </view>
+  </view>
+
+  <view class='buttom-card'>
+  <view class='span'> 
+        <text></text>
+    </view>
+    <view class='span'>
+      <text></text>
+    </view> 
+    <view class='span'>
+      <text></text>
+    </view>
+  </view>
+
+  <block wx:if="{{images.length<1}}">
+    <image src='../../image/add_image.png' catchtap='chooseImage' class='img'></image>
+  </block>
+
+  <block wx:if="{{images.length>0}}">
+      <view class="image-area">
+      <block wx:for="{{images}}" wx:key="*this">
+        <block wx:if="{{images.length>index&&index<3}}">
+            <image src="{{item}}" data-idx="{{index}}"
+                  catchtap="handleImagePreview"bindlongpress="showDelete"
+                  mode='aspectFill'class='img'></image>
+            <block wx:if="{{isShowDelete}}">
+              <image src="../../image/delete_image.png"data-index="{{index}}" catchtap="removeImageFirst"class='img-delete'></image>
+            </block>
+        </block>
+      </block>
+      <block wx:if="{{images.length<3}}">
+        <image src='../../image/add_image.png' catchtap='chooseImage' class='img'></image>
+      </block>
+      </view>
+  </block>
+
+  <block wx:if="{{images.length>=3}}">
+      <view class="image-area">
+      <block wx:for="{{images}}" wx:key="*this">
+        <block wx:if="{{images.length>index+3&&index<3}}">
+            <image src="{{images[index+3]}}" data-idx="{{index+3}}"
+            catchtap="handleImagePreview"bindlongpress="showDelete" 
+              mode='aspectFill'class='img'></image>
+            <block wx:if="{{isShowDelete}}">
+              <image src="../../image/delete_image.png"data-index="{{index}}" catchtap="removeImageSecond"class='img-delete'></image>
+            </block>
+        </block>
+      </block>
+      <block wx:if="{{images.length<6}}">
+        <image src='../../image/add_image.png' catchtap='chooseImage' class='img'></image>
+      </block>
+      </view>
+  </block>
+
+  <block wx:if="{{images.length>=6}}">
+      <view class="image-area">
+      <block wx:for="{{images}}" wx:key="*this">
+        <block wx:if="{{images.length>index+6&&index<3}}">
+            <image src="{{images[index+6]}}" data-idx="{{index+6}}"
+            catchtap="handleImagePreview"bindlongpress="showDelete" 
+            mode='aspectFill' class='img'></image>
+            <block wx:if="{{isShowDelete}}">
+              <image src="../../image/delete_image.png"data-index="{{index}}" catchtap="removeImageThird"class='img-delete'></image>
+            </block>   
+        </block>
+      </block>
+      <block wx:if="{{images.length<9}}">
+        <image src='../../image/add_image.png' catchtap='chooseImage' class='img'></image>
+      </block>
+      </view>
+  </block>
+  <button id='submit-bt'>我想要</button>

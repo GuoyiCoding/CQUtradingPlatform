@@ -32,7 +32,7 @@ Page({
         type: 1
       },
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         var jsdata = res.data;
         var msg = jsdata.msg;
 
@@ -54,7 +54,7 @@ Page({
             var price = fdata.price
             var describe = fdata.describe
             var product_id = strdata[i].pk
-            console.log(image)
+            // console.log(image)
             // console.log(fdata)
             goods.push({
               'product_id': product_id,
@@ -69,53 +69,6 @@ Page({
           })
           // console.log(this.data.goods)
         }
-        // else {
-        //   var strdata = jsdata.data
-        //   // console.log('历史返回    ' + strdata)
-        //   var jsd = JSON.parse(strdata)
-        //   var historyPageNum = jsd.length % pageCount == 0 ? parseInt(jsd.length / pageCount) : parseInt(jsd.length / pageCount) + 1
-        //   console.log('Num   ' + historyPageNum)
-        //   that.setData({
-        //     historyHave: true,
-        //     historyPageNum: historyPageNum
-        //   })
-        //   for (var i = jsd.length - 1; i >= 0; i--) {
-        //     var state = jsd[i]['fields']['state'] + ''
-        //     var result = jsd[i]['fields']['result'] + ''
-        //     var time = jsd[i]['fields']['time'] + ''
-        //     var year = time.substring(0, 4)
-        //     var month = time.substring(6, 7)
-        //     var day = time.substring(8, 10)
-        //     var clock = time.substring(11, 13)
-        //     var minute = time.substring(14, 16)
-        //     time = year + '年' + month + '月' + day + '日  ' + clock + ':' + minute
-
-        //     if (state == '0' || state == '1') {
-        //       result = '尚未计算完成'
-        //     }
-        //     else if (state == '2') {
-        //       if (result == 'true') {
-        //         result = '已感染'
-        //       }
-        //       else {
-        //         result = '未感染'
-        //       }
-        //     }
-        //     else {
-        //       result = '计算失败'
-        //     }
-        //     if (result != '尚未计算完成') {
-        //       that.data.historySmallImages.push({
-        //         'name': imgServer + thumbPre + jsd[i]['fields']['originalPicUrl'].substring(7),
-        //         'id': jsd[i]['pk'],
-        //         'state': state,
-        //         'result': result,
-        //         'time': time
-        //       });
-        //       that.data.historyBigImages.push(imgServer + jsd[i]['fields']['originalPicUrl'].substring(7));
-        //     }
-        //   }
-        // }
       }
     })
   },
@@ -126,7 +79,7 @@ Page({
       duration: 1000
     })
   },
-  onReachBottom: function () {/*什么意思？？ */
+  onReachBottom: function () {/*拉到底部刷新 */
     var that = this
     wx.showToast({
       title: '',
