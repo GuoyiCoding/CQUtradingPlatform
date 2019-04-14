@@ -60,7 +60,7 @@ page{
 }
 .goods-card {
   width: 344rpx;
-  height: 680rpx;
+  /* height: 680rpx; */
   margin: 10rpx;
   background-color: #fff;
   border-radius: 20rpx;
@@ -87,8 +87,8 @@ page{
 .goods-card .goods-price {
   position: relative;
   top: 20rpx;
-  right: 20rpx;
-  float: right;
+  left: 20rpx;
+  float: left;
   color: red;
 }
 .goods-img-layout_horizontal {
@@ -107,16 +107,13 @@ page{
     width: 85% 
 }
 .goods-image {
-  /* width: 50rpx; */
-   /* margin: 20rpx; */
-   /* height: 150rpx; */
     width: 100% ;
     border-radius:20rpx 20rpx 0 0;
 }
 
 .info-box {
-  width: 100%;
-  height: 100rpx;
+  width: 90%;
+  /* height: 100rpx; */
 }
 /* 用户头像 */
 .box1 {
@@ -126,15 +123,19 @@ page{
   /* background-color: red */
 }
 
-.box2 {
-  float: right;
-  height: 50%;
-  width: 85%;
+.info-area {
+  float: left;
+  width: 100%;
+  /* width: 85%; */
+  position: relative;
+  margin-left: 20rpx;
+  /* margin-right: 20rpx; */
   /* background-color: blue; */
 }
 .box3 {
   float: left;
   width: 85%;
-  height: 50%;
+  position: relative;
+  /* height: 50%; */
   /* background-color: yellow; */
 }
