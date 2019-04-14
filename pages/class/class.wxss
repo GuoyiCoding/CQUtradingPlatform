@@ -1,0 +1,188 @@
+page{
+    background-color: rgb(241,241,246);
+    /* font-size: 16px; */
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.link{
+  height: 5rpx;
+  background-color: #ECECEC;
+  width: 95%;
+  position: relative;
+  left: 20rpx;
+}
+.top-card{
+  background-color: white;
+  width: 100%;
+  height: 450rpx;
+  border-radius: 20rpx;
+  position: relative;
+}
+
+.top-card .title{
+  height: 70rpx;
+  margin-left: 30rpx;
+  padding-top:20rpx; 
+  font-size: 30rpx;
+}
+
+.top-card .describe{
+  margin-left:30rpx; 
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+
+.buttom-card{
+  /* margin-top: 30rpx; */
+  width: 100%;
+  height: 250rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+}
+
+.buttom-card .span{
+  position: relative;
+  top: 30rpx;
+  left: 30rpx;
+  font-size: 35rpx;
+  flex: 1;
+}
+.image-area{
+  position:relative;
+}
+
+.buttom{
+  height: 130rpx; 
+  background-color: white;
+}
+#submit-bt{
+  margin: 15rpx; 
+  width: 720rpx;
+  position:fixed;
+  bottom:0;
+  background-color: #6699cc
+}
+
+.img{
+  margin-left: 37rpx;
+  margin-top: 37rpx;
+  width:200rpx;
+  height: 200rpx;
+}
+.img-delete{
+  width:40rpx;
+  height:40rpx;
+  border:0;
+  margin-left: -40rpx;/*不会占用以前的位置*/
+  margin-bottom: 180rpx;
+  /* position:relative;/*学习relative的用法！！！！！！
+  left:-40rpx; relative依然会占用以前的位置
+  bottom: 180rpx; */
+}
+.grey-text{
+  color: rgb(122, 122, 122)
+}
+
+/* 商品卡片 */
+.goods-area {
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+}
+.goods-card {
+  width: 344rpx;
+  /* height: 680rpx; */
+  margin: 10rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  position: relative;
+  float: left;
+}
+.goods-card .user-img {
+  height: 70rpx;
+  width: 70rpx;
+  position: relative;
+  left: 25rpx;
+  top: 25rpx;
+}
+.goods-card .goods-title {
+  position: relative;
+  top: 20rpx;
+  left: 20rpx;
+}
+.goods-card .goods-time {
+  position: relative;
+  left: 20rpx;
+  font-size: 24rpx;
+}
+.goods-card .goods-price {
+  /* position: relative;
+  top: 20rpx;
+  left: 20rpx;
+  float: left; */
+  width: 100%;
+  color: red;
+}
+.goods-img-layout_horizontal {
+  /* display: flex;
+  /*row 横向  column 列表  */
+  /* flex-direction: row; */padding: auto;
+}
+.goods-img-layout_horizontal .img-float{
+  float: left;
+  width: 100%;
+}
+.goods-img-layout_horizontal image {
+  /* width: 50rpx; */
+   margin: 20rpx;
+   height: 150rpx;
+    width: 85% 
+}
+.goods-image {
+    width: 100% ;
+    border-radius:20rpx 20rpx 0 0;
+}
+
+.info-box {
+  width: 90%;
+  /* height: 100rpx; */
+}
+/* 用户头像 */
+.box1 {
+  height: 100%;
+  float: left;
+  width: 15%;
+  /* background-color: red */
+}
+
+.info-area {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  /* height: 30px; */
+  /* width: 85%; */
+  position: relative;
+  margin-left: 20rpx;
+  padding-bottom: 10rpx;
+  height: 50rpx;
+  /* margin-right: 20rpx; */
+  /* background-color: blue; */
+}
+.price-area {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  position: relative;
+  margin-left: 20rpx;
+  padding-bottom: 10rpx;
+  height: 50rpx;
+}
+.box3 {
+  float: left;
+  width: 85%;
+  position: relative;
+  /* height: 50%; */
+  /* background-color: yellow; */
+}

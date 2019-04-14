@@ -1,10 +1,6 @@
 /**index.wxss**/
 /* 水平布局器 */
-page{
-    background-color: rgb(241,241,246);
-    /* font-size: 16px; */
-    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
-}
+
 
 .layout_horizontal {
   display: flex;
@@ -52,90 +48,12 @@ page{
 } 
 
 
-
-/* 商品卡片 */
-.goods-area {
-  margin-left: 15rpx;
-  margin-right: 15rpx;
-}
-.goods-card {
-  width: 344rpx;
-  /* height: 680rpx; */
-  margin: 10rpx;
-  background-color: #fff;
-  border-radius: 20rpx;
-  position: relative;
-  float: left
-}
-.goods-card .user-img {
-  height: 70rpx;
-  width: 70rpx;
-  position: relative;
-  left: 25rpx;
-  top: 25rpx;
-}
-.goods-card .goods-title {
-  position: relative;
-  top: 20rpx;
-  left: 20rpx;
-}
-.goods-card .goods-time {
-  position: relative;
-  left: 20rpx;
-  font-size: 24rpx;
-}
-.goods-card .goods-price {
-  position: relative;
-  top: 20rpx;
-  left: 20rpx;
-  float: left;
-  color: red;
-}
-.goods-img-layout_horizontal {
-  /* display: flex;
-  /*row 横向  column 列表  */
-  /* flex-direction: row; */padding: auto;
-}
-.goods-img-layout_horizontal .img-float{
-  float: left;
+.swiper {
+  height: 750rpx;
   width: 100%;
+  margin-top: 20rpx;
 }
-.goods-img-layout_horizontal image {
-  /* width: 50rpx; */
-   margin: 20rpx;
-   height: 150rpx;
-    width: 85% 
-}
-.goods-image {
-    width: 100% ;
-    border-radius:20rpx 20rpx 0 0;
-}
-
-.info-box {
-  width: 90%;
-  /* height: 100rpx; */
-}
-/* 用户头像 */
-.box1 {
+.swiper image {
   height: 100%;
-  float: left;
-  width: 15%;
-  /* background-color: red */
-}
-
-.info-area {
-  float: left;
   width: 100%;
-  /* width: 85%; */
-  position: relative;
-  margin-left: 20rpx;
-  /* margin-right: 20rpx; */
-  /* background-color: blue; */
-}
-.box3 {
-  float: left;
-  width: 85%;
-  position: relative;
-  /* height: 50%; */
-  /* background-color: yellow; */
 }

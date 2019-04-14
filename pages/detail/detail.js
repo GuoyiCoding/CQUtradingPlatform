@@ -15,7 +15,7 @@ Page({
     this.setData({
       product_id: option.product_id,
     });
-    console.log(option.product_id);
+    console.log(option);
     var that = this
     wx.showToast({
       title: '努力加载中...',
