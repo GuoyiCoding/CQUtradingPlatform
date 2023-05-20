@@ -1,6 +1,7 @@
 # CQUtradingPlatform
-```
-<video id="video" controls="" preload="none" poster="https://gitee.com/WhiteMountain/blog-resources/raw/master/Adrift-HD.mp4-poster.png">
-    <source id="mp4" src="https://gitee.com/WhiteMountain/blog-resources/raw/master/Adrift-HD.mp4.mp4" type="video/mp4">
-</video>
-```
+## 演示视频
+
+<div align=center>
+    
+https://github.com/Guoyilearntocode/CQUtradingPlatform/assets/15711704/989b9094-8bfa-4fe6-8335-85fbf4d80576
+
