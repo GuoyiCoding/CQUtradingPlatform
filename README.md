@@ -1,4 +1,8 @@
 # CQUtradingPlatform
+
+## 介绍
+用于校内二手物品交易的微信小程序，支持用户分商品类别购买、发布商品信息
+
 ## 演示视频
 
 <div align=center>
